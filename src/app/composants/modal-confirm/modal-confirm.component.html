@@ -1,0 +1,65 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="modal-title" *ngIf="receive === 'Creer'">
+    CREATION
+  </h5>
+  <h5 class="modal-title" id="modal-title" *ngIf="receive === 'Modifier'">
+    MODIFIER
+  </h5>
+  <h5 class="modal-title" id="modal-title" *ngIf="receive === 'Supprimer'">
+    SUPPRIMER
+  </h5>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close button"
+    aria-describedby="modal-title"
+    (click)="modal.dismiss()"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p><strong>Êtes-vous sûr de vouloir effectuer cette action ?</strong></p>
+  <p>
+    <span class="text-danger" *ngIf="receive === 'Supprimer'"
+      >Cette action est irréversible.</span
+    >
+  </p>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-secondary text-dark m-2"
+    (click)="modal.dismiss()"
+  >
+    Annuler
+  </button>
+  <button
+    type="button"
+    ngbAutofocus
+    class="btn btn-danger m-2"
+    (click)="modal.close()"
+    *ngIf="receive === 'Creer'"
+  >
+    Creer
+  </button>
+  <button
+    type="button"
+    ngbAutofocus
+    class="btn btn-danger m-2"
+    (click)="modal.close()"
+    *ngIf="receive === 'Modifier'"
+  >
+    Modifier
+  </button>
+  <button
+    type="button"
+    ngbAutofocus
+    id="btn-close"
+    class="btn btn-danger m-2"
+    (click)="modal.close()"
+    *ngIf="receive === 'Supprimer'"
+  >
+    Supprimer
+  </button>
+</div>

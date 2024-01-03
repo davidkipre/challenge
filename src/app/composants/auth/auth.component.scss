@@ -1,0 +1,89 @@
+.container {
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+input:focus {
+  border: 3px solid rgb(229, 192, 123);
+}
+
+.grid--2--cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.image {
+  background: url(../../../assets/image/login.jpg) no-repeat center center/cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.form {
+  position: relative;
+}
+
+.login {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.speculations {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.connexion {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.label-1,
+.label-2 {
+  display: inline-block;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.7rem;
+}
+
+input {
+  width: 100%;
+  color: inherit;
+  font-family: inherit;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+.btn-1,
+.btn-2 {
+  margin-top: 1rem;
+  background-color: var(--color-primary);
+  text-align: center;
+  color: #fff;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.password-forgot {
+  text-align: center;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+p {
+  font-weight: 500;
+}

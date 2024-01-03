@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrepot</title>
+  </head>
+  <body>
+    <div class="login-page grid--2--cols">
+      <div class="image"></div>
+      <div class="form">
+        <div class="login">
+          <div class="logo">
+            <img
+              src="../../../assets/image/RIVCA-removebg-preview.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <p class="speculations">Spéculations</p>
+          </div>
+          <div class="connexion">Connexion / Incription</div>
+          <form [formGroup]="signupForm" (ngSubmit)="onSubmitSignupForm()">
+            <div *ngIf="errorMsg" class="alert alert-danger">
+              {{ errorMsg }}
+            </div>
+            <div class="form-group">
+              <div>
+                <label class="label-1" for="email">E-Mail ou Téléphone</label>
+              </div>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                formControlName="email"
+                name="email"
+                required
+                email
+              />
+            </div>
+            <div class="form-group">
+              <div>
+                <label class="label-2" for="password">Mot de passe</label>
+              </div>
+
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                formControlName="password"
+                name="password"
+                required
+                minlength="6"
+              />
+            </div>
+            <!-- <div class="btns">
+              <button class="btn-1" type="submit" [disabled]="!signupForm.valid">
+                Se Connecter
+              </button>
+              |
+              <button class="btn-2" type="submit" [disabled]="!signupForm.valid">S'inscrire</button>
+            </div> -->
+            <div class="btns">
+              <button
+                class="btn-1"
+                type="submit"
+                [disabled]="!signupForm.valid"
+              >
+                {{ isLoginMode ? "Login" : "Sign Up" }}
+              </button>
+              |
+              <button class="btn-2" (click)="onSwitchMode()" type="button">
+                Switch to {{ isLoginMode ? "Sign Up" : "Login" }}
+              </button>
+              <!-- <button
+                class="btn-1"
+                type="submit"
+                [disabled]="!signupForm.valid"
+              >
+                S'inscrire
+              </button>
+              |
+              <button
+                class="btn-1"
+                type="submit"
+                [disabled]="!signupForm.valid"
+              >
+                Se connecter
+              </button> -->
+
+              <!-- <button
+                class="btn-1"
+                type="submit"
+                [disabled]="!signupForm.valid"
+              >
+                {{ isLoginMode ? "Se Connecter" : "Sign Up" }}
+              </button>
+              |
+              <button class="btn-2" (click)="onSwitchMode()" type="button">
+                Switch to {{ isLoginMode ? "Sign Up" : "Se Connecter" }}
+              </button> -->
+            </div>
+            <p class="">Vous avez oublier votre mot de passe ?</p>
+            <span class="password-forgot"
+              >Reinitialiser votre mot de passe</span
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

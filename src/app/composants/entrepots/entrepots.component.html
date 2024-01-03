@@ -1,0 +1,187 @@
+<div class="container-project">
+  <div class="section-create">
+    <div class="creat">
+      <p>Créer Entrepot</p>
+    </div>
+    <div class="d-flex justify-content-center">
+      <form
+        [formGroup]="entrepotForm"
+        (ngSubmit)="onSubmitEntrepotForm()"
+        class="formul"
+      >
+        <div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
+        <div class="cta-form">
+          <div class="form-group mb-3">
+            <label for="libelle">Libelle</label>
+            <select
+              formControlName="libelle"
+              id="libelle"
+              class="form-control form-select form-select-lg mb-3"
+              aria-label="Large select example"
+            >
+              <option></option>
+              <option *ngFor="let lib of Libelle" [ngValue]="lib">
+                {{ lib }}
+              </option>
+            </select>
+            <span
+              *ngIf="
+                !entrepotForm.get('libelle')?.valid &&
+                entrepotForm.get('libelle')?.touched
+              "
+              class="help-block"
+            >
+              This field is required!
+            </span>
+          </div>
+          <div class="form-group mb-3">
+            <label for="libelle">Superficie</label>
+            <select
+              formControlName="superficie"
+              class="form-select form-select-lg mb-3"
+              aria-label="Large select example"
+            >
+              <option></option>
+              <option *ngFor="let sup of Superficie" [ngValue]="sup">
+                {{ sup }}
+              </option>
+            </select>
+            <span
+              *ngIf="
+                !entrepotForm.get('superficie')?.valid &&
+                entrepotForm.get('superficie')?.touched
+              "
+              class="help-block"
+            >
+              This field is required!
+            </span>
+          </div>
+          <div class="form-group mb-3">
+            <label for="libelle">Placer</label>
+            <select
+              formControlName="placer"
+              class="form-select form-select-lg mb-3"
+              aria-label="Large select example"
+            >
+              <option></option>
+              <option *ngFor="let plac of Placer" [ngValue]="plac">
+                {{ plac }}
+              </option>
+            </select>
+            <span
+              *ngIf="
+                !entrepotForm.get('placer')?.valid &&
+                entrepotForm.get('placer')?.touched
+              "
+              class="help-block"
+            >
+              This field is required!
+            </span>
+          </div>
+          <div class="form-group mb-3">
+            <label>Longitude</label>
+            <select
+              formControlName="longitude"
+              class="form-select form-select-lg mb-3"
+              aria-label="Large select example"
+            >
+              <option></option>
+              <option *ngFor="let long of Longitude" [ngValue]="long">
+                {{ long }}
+              </option>
+            </select>
+            <span
+              *ngIf="
+                !entrepotForm.get('longitude')?.valid &&
+                entrepotForm.get('longitude')?.touched
+              "
+              class="help-block"
+            >
+              This field is required!
+            </span>
+          </div>
+          <div class="form-group mb-3">
+            <label for="libelle">Latitude</label>
+            <select
+              formControlName="latitude"
+              class="form-select form-select-lg mb-3"
+              aria-label="Large select example"
+            >
+              <option></option>
+              <option *ngFor="let lat of Latitude" [ngValue]="lat">
+                {{ lat }}
+              </option>
+            </select>
+            <span
+              *ngIf="
+                !entrepotForm.get('latitude')?.valid &&
+                entrepotForm.get('latitude')?.touched
+              "
+              class="help-block"
+            >
+              This field is required!
+            </span>
+          </div>
+        </div>
+        <div class="btn-form">
+          <div class="d-flex">
+            <button
+              class="btn-create-Entr mx-auto"
+              type="button"
+              (click)="reset()"
+            >
+              Annuler
+            </button>
+          </div>
+          <div class="d-flex">
+            <button
+              class="btn-create-Entr mx-auto"
+              type="submit"
+              [disabled]="entrepotForm.invalid"
+            >
+              Enregistrer
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Tab -->
+
+<div class="section container-project">
+  <ngb-alert *ngIf="alert.isVisible" class="text-center" [type]="alert.type">
+    {{ alert.message }}
+  </ngb-alert>
+  <div class="two">
+    <div class="creat">
+      <p>List Entrepots</p>
+    </div>
+    <section class="attendance">
+      <div class="attendance-list">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Libellé</th>
+              <th>Superficie (M²)</th>
+              <th>Placer</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let ent of entrepots">
+            <tr>
+              <td>{{ ent.libelle }}</td>
+              <td>{{ ent.superficie }}</td>
+              <td>{{ ent.placer }}</td>
+              <td>
+                <button (click)="onDeleteEntrepot(ent.id)">Supprimer</button>
+                <button (click)="onEditEntrepot(ent)">Modifier</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
